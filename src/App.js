@@ -1,20 +1,19 @@
 import React from 'react';
-import './App.css';
 import InfoClient from './Pages/InfoClient';
 
 const client = {
-  id: '0',
+  id: '1374',
   name: 'Joel',
   lastName: 'Alfaro',
   plan: 'Simple',
   DNI: '41287058',
   tel: '221485733',
-  alta: true,
+  alta: 'Si',
   email: 'alfarojoelf@gmail.com',
-  birth: '',
-  validity: '',
-  nextPay: '',
-  status: 'single',
+  birth: '1998-10-23',
+  validity: '2021-12-24',
+  nextPay: '2022-01-24',
+  status: 'Soltero',
   image: '',
   medicalFit: '',
   checkMedicalFit: false,
@@ -38,7 +37,7 @@ const client = {
 function App() {
   return (
     <div className="App">
-      <InfoClient />
+      <InfoClient client={client}/>
     </div>
   );
 }
