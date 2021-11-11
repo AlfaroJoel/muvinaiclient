@@ -6,10 +6,8 @@ import {
   
 } from '@mui/material';
 
-const PersonalInfo = ({client, isReadOnly}) => {
-  const {name, lastName, plan, DNI, tel, alta, email, birth} = client;
-  const [valueInfo, setValueInfo] = useState(client);
 
+const PersonalInfo = ({clientInfo, setClientInfo, isReadOnly}) => {
   return (
     <Section title='Datos Personales'>
       <Box display='flex'>
@@ -19,15 +17,15 @@ const PersonalInfo = ({client, isReadOnly}) => {
             src="/static/images/avatar/1.jpg"
             sx={{ width: 145, height: 145 }}
           />
-          <Typography as='h2' fontSize='1.15rem'>ID {client.id}</Typography>
+          <Typography as='h2' fontSize='1.15rem'>ID {clientInfo.id}</Typography>
         </Box>
         <Stack spacing={5} paddingLeft='70px' >
           <Stack direction='row' justifyContent="space-evenly" spacing={7}>
             <TextField
               variant="standard"
               label="Nombre"
-              value={valueInfo.name}
-              onChange={(e) => setValueInfo({...valueInfo, name: e.target.value})}
+              value={clientInfo.name}
+              onChange={(e) => setClientInfo({...clientInfo, name: e.target.value})}
               InputProps={{
                 readOnly: isReadOnly,
               }}
@@ -35,8 +33,8 @@ const PersonalInfo = ({client, isReadOnly}) => {
             <TextField
               variant="standard"
               label="Apellido"
-              value={valueInfo.lastName}
-              onChange={(e) => setValueInfo({...valueInfo, lastName: e.target.value})}
+              value={clientInfo.lastName}
+              onChange={(e) => setClientInfo({...clientInfo, lastName: e.target.value})}
               InputProps={{
                 readOnly: isReadOnly,
               }}
@@ -44,8 +42,8 @@ const PersonalInfo = ({client, isReadOnly}) => {
             <TextField
               variant="standard"
               label="DNI"
-              value={valueInfo.DNI}
-              onChange={(e) => setValueInfo({...valueInfo, DNI: e.target.value})}
+              value={clientInfo.DNI}
+              onChange={(e) => setClientInfo({...clientInfo, DNI: e.target.value})}
               InputProps={{
                 readOnly: isReadOnly,
               }}
@@ -53,8 +51,8 @@ const PersonalInfo = ({client, isReadOnly}) => {
             <TextField
               variant="standard"
               label="Telefono"
-              value={valueInfo.tel}
-              onChange={(e) => setValueInfo({...valueInfo, tel: e.target.value})}
+              value={clientInfo.tel}
+              onChange={(e) => setClientInfo({...clientInfo, tel: e.target.value})}
               InputProps={{
                 readOnly: isReadOnly,
               }}
@@ -64,8 +62,8 @@ const PersonalInfo = ({client, isReadOnly}) => {
             <TextField
               variant="standard"
               label="Email"
-              value={valueInfo.email}
-              onChange={(e) => setValueInfo({...valueInfo, email: e.target.value})}
+              value={clientInfo.email}
+              onChange={(e) => setClientInfo({...clientInfo, email: e.target.value})}
               InputProps={{
                 readOnly: isReadOnly,
               }}
@@ -75,8 +73,8 @@ const PersonalInfo = ({client, isReadOnly}) => {
               variant="standard"
               label="Fecha de Nacimiento"
               type="date"
-              value={valueInfo.birth}
-              onChange={(e) => setValueInfo({...valueInfo, birth: e.target.value})}
+              value={clientInfo.birth}
+              onChange={(e) => setClientInfo({...clientInfo, birth: e.target.value})}
               sx={{ width: 200 }}
               InputProps={{
                 readOnly: isReadOnly,
@@ -85,8 +83,8 @@ const PersonalInfo = ({client, isReadOnly}) => {
             <TextField
               variant="standard"
               label="Alta"
-              value={valueInfo.alta}
-              onChange={(e) => setValueInfo({...valueInfo, alta: e.target.value})}
+              value={clientInfo.alta}
+              onChange={(e) => setClientInfo({...clientInfo, alta: e.target.value})}
               InputProps={{
                 readOnly: isReadOnly,
               }}
@@ -94,8 +92,8 @@ const PersonalInfo = ({client, isReadOnly}) => {
             <TextField
               variant="standard"
               label="Plan Activo"
-              value={valueInfo.plan}
-              onChange={(e) => setValueInfo({...valueInfo, plan: e.target.value})}
+              value={clientInfo.plan}
+              onChange={(e) => setClientInfo({...clientInfo, plan: e.target.value})}
               InputProps={{
                 readOnly: isReadOnly,
               }}
@@ -106,7 +104,7 @@ const PersonalInfo = ({client, isReadOnly}) => {
               variant="standard"
               label="Fecha de Vigencia"
               type="date"
-              value={valueInfo.validity}
+              value={clientInfo.validity}
               sx={{ width: 200 }}
               InputProps={{
                 readOnly: true,
@@ -116,7 +114,7 @@ const PersonalInfo = ({client, isReadOnly}) => {
               variant="standard"
               label="Fecha de Proximo Pago"
               type="date"
-              value={valueInfo.nextPay}
+              value={clientInfo.nextPay}
               sx={{ width: 200 }}
               InputProps={{
                 readOnly: true,
@@ -125,7 +123,7 @@ const PersonalInfo = ({client, isReadOnly}) => {
             <TextField
               variant="standard"
               label="Estado"
-              value={valueInfo.status}
+              value={clientInfo.status}
               InputProps={{
                 readOnly: true,
               }}
