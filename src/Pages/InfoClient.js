@@ -4,20 +4,32 @@ import Button from '@mui/material/Button';
 import DrawerClient from '../Components/DrawerClient/DrawerClient';
 import PersonalInfo from '../Components/Sections/PersonalInfo';
 import MedicalFit from '../Components/Sections/MedicalFit';
+import { useDispatch } from 'react-redux';
+import { clientActions } from '../Store/clientSlice';
+import { useSelector } from 'react-redux';
 
-const InfoClient = ({client}) => {
+
+const InfoClient = () => {
   const [isReadOnly, setIsReadOnly] = useState(true);
+  const client = useSelector(state => state.client.item);
+  const [clientInfo, setClientInfo] = useState(client);
+  const dispatch = useDispatch();
+
+  const clientInfoHandler = () => {
+    setIsReadOnly(true);
+    dispatch(clientActions.editClient(clientInfo));
+  };
 
   return (
     <Box>
       <DrawerClient/>
       <Box padding='80px 20px 80px 70px'>
-        <PersonalInfo client={client} isReadOnly={isReadOnly}/>
-        <MedicalFit client={client}/>
+        <PersonalInfo isReadOnly={isReadOnly} clientInfo={clientInfo} setClientInfo={setClientInfo}/>
+        <MedicalFit clientInfo={clientInfo} setClientInfo={setClientInfo} isReadOnly={isReadOnly}/>
         <Box width='100%' textAlign='end'>
           {isReadOnly ? 
             <Button variant="outlined" onClick={()=> {setIsReadOnly(false);}}>Editar</Button> :
-            <Button variant="outlined" onClick={()=> {setIsReadOnly(true);}}>Guardar</Button> 
+            <Button variant="outlined" onClick={clientInfoHandler}>Guardar</Button> 
           }
         </Box>
       </Box>
