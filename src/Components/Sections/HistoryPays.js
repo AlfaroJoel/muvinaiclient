@@ -19,7 +19,6 @@ const HistoryPays = ({clientInfo}) => {
         },
         '::-webkit-scrollbar-thumb': {
           backgroundColor: 'rgba(0,0,0,.1)',
-          outline: '1px solid slategrey',
           borderRadius: '10px'
         } }}>
         {client.historyPays.map((item) => <TimeLinePay key={item.id} item={item}/>)}
