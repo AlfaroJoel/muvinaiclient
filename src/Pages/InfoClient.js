@@ -7,6 +7,7 @@ import MedicalFit from '../Components/Sections/MedicalFit';
 import { useDispatch } from 'react-redux';
 import { clientActions } from '../Store/clientSlice';
 import { useSelector } from 'react-redux';
+import HistoryPays from '../Components/Sections/HistoryPays';
 
 
 const InfoClient = () => {
@@ -24,8 +25,10 @@ const InfoClient = () => {
     <Box>
       <DrawerClient/>
       <Box padding='80px 20px 80px 70px'>
+
         <PersonalInfo isReadOnly={isReadOnly} clientInfo={clientInfo} setClientInfo={setClientInfo}/>
         <MedicalFit clientInfo={clientInfo} setClientInfo={setClientInfo} isReadOnly={isReadOnly}/>
+        <HistoryPays />
         <Box width='100%' textAlign='end'>
           {isReadOnly ? 
             <Button variant="outlined" onClick={()=> {setIsReadOnly(false);}}>Editar</Button> :
