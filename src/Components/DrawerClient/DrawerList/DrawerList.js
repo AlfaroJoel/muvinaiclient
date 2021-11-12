@@ -14,22 +14,20 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import { RiCoupon5Line } from 'react-icons/ri';
 import MapIcon from '@mui/icons-material/Map';
+import Link from '@mui/material/Link';
 import List from '@mui/material/List';
 
 const DrawerList = ({handleDrawerClose}) => {
   return (
     <List>
       <ListItem button onClick={handleDrawerClose}>
-        <ListItemIcon>
-          <VisibilityIcon/>
-        </ListItemIcon>
-        <ListItemText primary="Ver Todo" />
-      </ListItem>
-      <ListItem button onClick={handleDrawerClose}>
-        <ListItemIcon>
-          <PermIdentityIcon/>
-        </ListItemIcon>
-        <ListItemText primary="Datos Personales" />
+        <Link underline='none' href='#personalInfo'
+          color='#000' aria-current="page" sx={{width:'100%', display:'flex', alignItems:'center'}}>
+          <ListItemIcon>
+            <PermIdentityIcon/>
+          </ListItemIcon>
+          <ListItemText primary="Datos Personales" />
+        </Link>
       </ListItem>
       <Accordion 
         sx={{'&:before': {display: 'none'}}} //boxShadow:'none',
@@ -47,34 +45,49 @@ const DrawerList = ({handleDrawerClose}) => {
         </AccordionSummary>
         <AccordionDetails sx={{padding: '0'}}>
           <ListItem button onClick={handleDrawerClose}>
-            <ListItemIcon>
-              <PaymentsIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Pagos" />
+            <Link underline='none' href='#historyPays'
+              color='#000' aria-current="page" sx={{width:'100%', display:'flex', alignItems:'center'}}>
+              <ListItemIcon>
+                <PaymentsIcon/>
+              </ListItemIcon>
+              <ListItemText primary="Pagos" />
+            </Link>
           </ListItem>
           <ListItem button onClick={handleDrawerClose}>
-            <ListItemIcon>
-              <EditIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Edicion" />
+            <Link underline='none' href='#historyAssociation'
+              color='#000' aria-current="page" sx={{width:'100%', display:'flex', alignItems:'center'}}>
+              <ListItemIcon>
+                <ContentPasteIcon/>
+              </ListItemIcon>
+              <ListItemText primary="Asociaciones" />
+            </Link>
           </ListItem>
           <ListItem button onClick={handleDrawerClose}>
-            <ListItemIcon>
-              <ContentPasteIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Asociaciones" />
+            <Link underline='none' href='#historyVenues'
+              color='#000' aria-current="page" sx={{width:'100%', display:'flex', alignItems:'center'}}>
+              <ListItemIcon>
+                <MapIcon/>
+              </ListItemIcon>
+              <ListItemText primary="Sedes Anteriores" />
+            </Link>
           </ListItem>
           <ListItem button onClick={handleDrawerClose}>
-            <ListItemIcon>
-              <RiCoupon5Line fontSize='24px'/>
-            </ListItemIcon>
-            <ListItemText primary="Cupones" />
+            <Link underline='none' href='#historyCoupons'
+              color='#000' aria-current="page" sx={{width:'100%', display:'flex', alignItems:'center'}}>
+              <ListItemIcon>
+                <RiCoupon5Line fontSize='24px'/>
+              </ListItemIcon>
+              <ListItemText primary="Cupones" />
+            </Link>
           </ListItem>
-          <ListItem button onClick={handleDrawerClose}>
-            <ListItemIcon>
-              <MapIcon/>
-            </ListItemIcon>
-            <ListItemText primary="Sedes Anteriores" />
+          <ListItem button onClick={handleDrawerClose} diplsay='flex'>
+            <Link underline='none' href='#historyEdit'
+              color='#000' aria-current="page" sx={{width:'100%', display:'flex', alignItems:'center'}}>
+              <ListItemIcon>
+                <EditIcon/>
+              </ListItemIcon>
+              <ListItemText primary='Edicion'/>
+            </Link>
           </ListItem>
         </AccordionDetails>
       </Accordion>

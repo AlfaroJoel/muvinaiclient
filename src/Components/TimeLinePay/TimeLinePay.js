@@ -16,7 +16,7 @@ const TimeLinePay = ({item}) => {
 
   return (
     <Box display='flex'>
-      <TimelineItem sx={{width:'40%'}}>
+      <TimelineItem sx={{width:'25%', marginRight:'40px'}}>
         <TimelineOppositeContent
           sx={{ m: 'auto 0' }}
           variant="body2"
@@ -48,7 +48,7 @@ const TimeLinePay = ({item}) => {
         </TimelineContent>
       </TimelineItem>
       <Stack
-        spacing={2}
+        spacing={1}
         display={openInfo ? 'flex': 'none'}
         direction='row' alignItems='center'
       >

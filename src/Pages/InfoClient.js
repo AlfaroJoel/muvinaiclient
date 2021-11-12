@@ -1,6 +1,5 @@
 import React,{ useState }from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import DrawerClient from '../Components/DrawerClient/DrawerClient';
 import PersonalInfo from '../Components/Sections/PersonalInfo';
 import MedicalFit from '../Components/Sections/MedicalFit';
@@ -11,6 +10,8 @@ import HistoryPays from '../Components/Sections/HistoryPays';
 import HistoryEdits from '../Components/Sections/HistoryEdits';
 import HistoryVenues from '../Components/Sections/HistoryVenues';
 import HistoryCoupons from '../Components/Sections/HistoryCoupons';
+import HistoryAssociations from '../Components/Sections/HistoryAssociations';
+import OptionsMenu from '../Components/OptionsMenu/OptionsMenu';
 
 
 const InfoClient = () => {
@@ -27,22 +28,24 @@ const InfoClient = () => {
   return (
     <Box>
       <DrawerClient/>
-      <Box padding='80px 20px 80px 70px'>
-
+      <Box padding='10px 20px 80px 70px' marginTop='30px'>
         <PersonalInfo isReadOnly={isReadOnly} clientInfo={clientInfo} setClientInfo={setClientInfo}/>
         <MedicalFit clientInfo={clientInfo} setClientInfo={setClientInfo} isReadOnly={isReadOnly}/>
-        <HistoryPays />
+        <Box display='flex' justifyContent='space-between'>
+          <HistoryPays />
+          <HistoryAssociations />
+        </Box>
         <Box display='flex' justifyContent='space-between'>
           <HistoryVenues />
           <HistoryCoupons />
         </Box>
         <HistoryEdits />
-        <Box width='100%' textAlign='end'>
-          {isReadOnly ? 
-            <Button variant="outlined" onClick={()=> {setIsReadOnly(false);}}>Editar</Button> :
-            <Button variant="outlined" onClick={clientInfoHandler}>Guardar</Button> 
-          }
-        </Box>
+        <OptionsMenu isReadOnly={isReadOnly} 
+          setIsReadOnly={setIsReadOnly} 
+          clientInfoHandler={clientInfoHandler}
+          setClientInfo={setClientInfo}
+          clientInfo={clientInfo}
+        />
       </Box>
     </Box>
   );

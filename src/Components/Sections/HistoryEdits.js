@@ -33,7 +33,7 @@ const HistoryEdits = () => {
     setPage(0);
   };
   return (
-    <Section title='Historial de Edicion' minHeight='470px'>
+    <Section title='Historial de Edicion' minHeight='470px' id='historyEdit'>
       <Paper sx={{ width: '100%', minHeight: '380px', overflow: 'hidden' }}>
         <TableContainer 
           sx={{ maxHeight: '330px', minHeight:'330px',
@@ -49,7 +49,7 @@ const HistoryEdits = () => {
             }}
           }>
           <Table stickyHeader aria-label="sticky table">
-            <TableHead variant='outlined'>
+            <TableHead>
               <TableRow>
                 {columns.map((column) => (
                   <TableCell

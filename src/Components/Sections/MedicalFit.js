@@ -42,7 +42,7 @@ const MedicalFit = ({clientInfo, setClientInfo, isReadOnly}) => {
   };
 
   return (
-    <Section title='Apto Medico'>
+    <Section title='Apto Medico' id='medicalFit'>
       <Box display='flex' alignItems='center' width='100%'>
         <label htmlFor="contained-button-file">
           <Box sx={{marginRight:'20px'}}>

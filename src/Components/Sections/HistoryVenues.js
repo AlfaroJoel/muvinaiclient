@@ -37,7 +37,7 @@ const HistoryVenues = () => {
 
   return (
     <Box width='49%'>
-      <Section title='Accessos del Socio a las Sedes'>
+      <Section title='Accessos del Socio a las Sedes' id='historyVenues'>
         <Doughnut data={data} />
       </Section>
     </Box>

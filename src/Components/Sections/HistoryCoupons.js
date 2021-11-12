@@ -37,7 +37,7 @@ const HistoryCoupons = () => {
 
   return (
     <Box width='49%'>
-      <Section title='Cupones Usados'>
+      <Section title='Cupones Usados' id='historyCoupons'>
         <Pie data={data} />
       </Section>
     </Box>

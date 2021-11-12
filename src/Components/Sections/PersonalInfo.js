@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Section from './Section';
 import { 
   Stack, TextField, 
@@ -9,7 +9,7 @@ import {
 
 const PersonalInfo = ({clientInfo, setClientInfo, isReadOnly}) => {
   return (
-    <Section title='Datos Personales'>
+    <Section title='Datos Personales' id='personalInfo'>
       <Box display='flex'>
         <Box display='flex' flexDirection='column' justifyContent='space-evenly' textAlign='center'>
           <Avatar
@@ -19,8 +19,8 @@ const PersonalInfo = ({clientInfo, setClientInfo, isReadOnly}) => {
           />
           <Typography as='h2' fontSize='1.15rem'>ID {clientInfo.id}</Typography>
         </Box>
-        <Stack spacing={5} paddingLeft='70px' >
-          <Stack direction='row' justifyContent="space-evenly" spacing={7}>
+        <Stack spacing={6} paddingLeft='70px' width='100%'>
+          <Stack direction='row' spacing={7} display='flex' justifyContent="center" alignItems='center'>
             <TextField
               variant="standard"
               label="Nombre"
@@ -58,7 +58,7 @@ const PersonalInfo = ({clientInfo, setClientInfo, isReadOnly}) => {
               }}
             />
           </Stack>
-          <Stack direction='row' spacing={7}  justifyContent="space-evenly">
+          <Stack direction='row' spacing={7}  justifyContent="center">
             <TextField
               variant="standard"
               label="Email"
@@ -83,10 +83,9 @@ const PersonalInfo = ({clientInfo, setClientInfo, isReadOnly}) => {
             <TextField
               variant="standard"
               label="Alta"
-              value={clientInfo.alta}
-              onChange={(e) => setClientInfo({...clientInfo, alta: e.target.value})}
+              value={clientInfo.alta ? 'Si' : 'No'}
               InputProps={{
-                readOnly: isReadOnly,
+                readOnly: true,
               }}
             />
             <TextField
@@ -99,13 +98,13 @@ const PersonalInfo = ({clientInfo, setClientInfo, isReadOnly}) => {
               }}
             />
           </Stack>
-          <Stack direction='row' spacing={7}>
+          <Stack direction='row' spacing={7} justifyContent="flex-start">
             <TextField
               variant="standard"
               label="Fecha de Vigencia"
               type="date"
               value={clientInfo.validity}
-              sx={{ width: 200 }}
+              sx={{ width: 193 }}
               InputProps={{
                 readOnly: true,
               }}
