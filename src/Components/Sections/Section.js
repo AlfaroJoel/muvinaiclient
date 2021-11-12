@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-const Section = ({title, children}) => {
+const Section = ({title, children, minHeight}) => {
   return (
     <Box 
       boxShadow='0px 2px 1px -1px rgb(0 0 0 / 20%),
@@ -11,6 +11,7 @@ const Section = ({title, children}) => {
       padding='10px 20px'
       borderRadius='8px'
       marginBottom='35px'
+      minHeight={minHeight}
     >
       <Typography textAlign='start' as='h1' fontSize='1.3rem' fontWeight='700'>{title}</Typography>
       <Box padding='20px 30px'>

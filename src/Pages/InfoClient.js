@@ -8,6 +8,9 @@ import { useDispatch } from 'react-redux';
 import { clientActions } from '../Store/clientSlice';
 import { useSelector } from 'react-redux';
 import HistoryPays from '../Components/Sections/HistoryPays';
+import HistoryEdits from '../Components/Sections/HistoryEdits';
+import HistoryVenues from '../Components/Sections/HistoryVenues';
+import HistoryCoupons from '../Components/Sections/HistoryCoupons';
 
 
 const InfoClient = () => {
@@ -29,6 +32,11 @@ const InfoClient = () => {
         <PersonalInfo isReadOnly={isReadOnly} clientInfo={clientInfo} setClientInfo={setClientInfo}/>
         <MedicalFit clientInfo={clientInfo} setClientInfo={setClientInfo} isReadOnly={isReadOnly}/>
         <HistoryPays />
+        <Box display='flex' justifyContent='space-between'>
+          <HistoryVenues />
+          <HistoryCoupons />
+        </Box>
+        <HistoryEdits />
         <Box width='100%' textAlign='end'>
           {isReadOnly ? 
             <Button variant="outlined" onClick={()=> {setIsReadOnly(false);}}>Editar</Button> :
