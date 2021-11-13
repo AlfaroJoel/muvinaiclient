@@ -1,22 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { styled } from '@mui/material/styles';
 import Section from './Section';
 import { 
   Stack, TextField, 
   Typography, Box, Avatar,
-  
+  Button
 } from '@mui/material';
+import UploadIcon from '@mui/icons-material/Upload';
 
+const Input = styled('input')({
+  display: 'none',
+});
 
 const PersonalInfo = ({clientInfo, setClientInfo, isReadOnly}) => {
+
+  const [imageProfile, setImageProfile] = useState('');
+
+  const handlerInput = (e) => {
+    if(e.target.files.length > 0){
+      let reader = new FileReader();
+      setClientInfo({...clientInfo, image: e.target.files[0]});
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = () =>{
+        setImageProfile(reader.result);
+      };
+    }
+  };
+
   return (
     <Section title='Datos Personales' id='personalInfo'>
       <Box display='flex'>
-        <Box display='flex' flexDirection='column' justifyContent='space-evenly' textAlign='center'>
+        <Box display='flex' flexDirection='column' justifyContent='space-evenly' textAlign='center' alignItems='center'>
           <Avatar
             alt="Remy Sharp"
-            src="/static/images/avatar/1.jpg"
+            src={imageProfile}
             sx={{ width: 145, height: 145 }}
           />
+          <label htmlFor="contained-button-file">
+            <Box marginBottom='20px'>
+              <Input accept=".png, .jpeg, .jpg" id="contained-button-file" 
+                multiple type="file"
+                onChange={handlerInput}
+              />
+              <Button size='small' variant="contained" component="span" startIcon={<UploadIcon/>}>Subir</Button>
+            </Box>
+          </label>
           <Typography as='h2' fontSize='1.15rem'>ID {clientInfo.id}</Typography>
         </Box>
         <Stack spacing={6} paddingLeft='70px' width='100%'>
