@@ -12,12 +12,13 @@ import HistoryVenues from '../Components/Sections/HistoryVenues';
 import HistoryCoupons from '../Components/Sections/HistoryCoupons';
 import HistoryAssociations from '../Components/Sections/HistoryAssociations';
 import OptionsMenu from '../Components/OptionsMenu/OptionsMenu';
-
+import AddCoupon from '../Components/AddCoupon/AddCoupon';
 
 const InfoClient = () => {
   const [isReadOnly, setIsReadOnly] = useState(true);
   const client = useSelector(state => state.client.item);
   const [clientInfo, setClientInfo] = useState(client);
+  const [openCoupon, setOpenCoupon] = useState(false);
   const dispatch = useDispatch();
 
   const clientInfoHandler = () => {
@@ -40,11 +41,13 @@ const InfoClient = () => {
           <HistoryCoupons />
         </Box>
         <HistoryEdits />
+        <AddCoupon open={openCoupon} setOpenCoupon={setOpenCoupon}/>
         <OptionsMenu isReadOnly={isReadOnly} 
           setIsReadOnly={setIsReadOnly} 
           clientInfoHandler={clientInfoHandler}
           setClientInfo={setClientInfo}
           clientInfo={clientInfo}
+          setOpenCoupon={setOpenCoupon}
         />
       </Box>
     </Box>

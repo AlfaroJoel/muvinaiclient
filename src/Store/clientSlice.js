@@ -7,7 +7,7 @@ const client = {
   plan: 'Simple',
   DNI: '41287058',
   tel: '221485733',
-  alta: 'Si',
+  alta: true,
   email: 'alfarojoelf@gmail.com',
   birth: '1998-10-23',
   validity: '2021-12-24',
@@ -33,7 +33,12 @@ const client = {
     {id: '7', user: 'Gerente', name: 'Javier', action: 'modifico categoria Telefono', from: '2284478966', to: '221485733'},
     {id: '8', user: 'Recepcionista', name: 'Carlos', action: 'modifico categoria Email', from: 'joelalfaro@gmail.com', to: 'alfarojoelf@gmail.com'},
   ],
-  pastAssociations: [{from: '', to: ''}],
+  pastAssociations: [
+    {from: '2020-01-03', to: '2020-03-02'},
+    {from: '2020-04-10', to: '2020-07-11'},
+    {from: '2020-11-14', to: '2021-03-16'},
+    {from: '2021-06-23', to: 'Presente'},
+  ],
   coupons: [
     {name: 'OSDE', from: '2021-10-23', to: '2021-11-23', discount: '20'},
     {name: 'Aniversario', from: '2021-08-15', to: '2021-09-15', discount: '35'},
